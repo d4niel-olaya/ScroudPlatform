@@ -15,5 +15,6 @@
     <body class="bg-base-100">
         <x-navbar></x-navbar>
         <x-hero></x-hero>
+        <x-enterprise></x-enterprise>
     </body>
 </html>
