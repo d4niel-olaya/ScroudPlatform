@@ -1,7 +1,7 @@
 <div class="mt-16">
     <div class=" text-center w-full">
 
-        <span class="text-gray-400 ">used by employees of</span>
+        <span class="text-gray-400 ">Trusted by</span>
     </div>
     <div class="w-full flex flex-wrap items-center justify-center gap-1 xs:gap-2 sm:flex-nowrap">
         
