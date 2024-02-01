@@ -1,6 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
+
+
+use Google\Cloud\Storage\StorageClient;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
@@ -11,6 +13,15 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+   /*
+    protected StorageClient $client;
+
+    public function __construct()
+    {
+        $this->client = new StorageClient([
+            'crendentials' => json_decode(env("GCLOUD"))
+        ]);
+    }*/
     /**
      * Display the user's profile form.
      */
@@ -19,6 +30,15 @@ class ProfileController extends Controller
         return view('profile.edit', [
             'user' => $request->user(),
         ]);
+    }
+
+    public function getBuckets()
+    {
+       
+        // Imprime la respuesta
+       
+        //$bucket = $this->client->bucket("0093dd41-f96f-42e4-b034-b62799529031");
+        return view("buckets");
     }
 
     /**
