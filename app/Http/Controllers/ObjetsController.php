@@ -24,7 +24,8 @@ class ObjetsController extends Controller
         $r = $servicio->CreateObject($request->clave,$archivo);
         if(strval($r) == "201")
         {
-            return redirect("/dashboard");
+            $key = DB::select("SELECT IdBucket from buckets WHERE ApiKey = :clave", ["clave"=>$request->clave]);
+            return redirect("/objects?id=".$key[0]->IdBucket);
         }
         return redirect("/dashboard?code=".$r);
     }

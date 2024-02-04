@@ -27,6 +27,7 @@ Route::get('/dashboard', function () {
 */
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [BucketController::class, 'GetBuckets'])->middleware(['auth', 'verified'])->name('dashboard');
+    Route::post('/create/bucket', [BucketController::class, 'CreateBucket'])->name('CreateB');
 });
 
 Route::middleware('auth')->group(function () {

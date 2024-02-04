@@ -14,6 +14,16 @@
     </head>
     <body class="bg-base-100">
         @include("partials.navbar")
+        <form method="POST" action="{{route("CreateB")}}" >
+            @csrf("POST")
+            <div class="mx-auto">
+
+                <label class="label">Name :</label>
+                <input type="text" name="name" class="input input-bordered w-full max-w-xs" >
+                <br>
+                <button class="btn btn-primary">Create Bucket</button>
+            </div>
+        </form>
         <div class="flex flex-wrap">
             @foreach ($buckets as $item)
                 <div class="card w-96 bg-base-100 shadow-xl">

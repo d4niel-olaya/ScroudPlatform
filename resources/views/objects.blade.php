@@ -16,7 +16,7 @@
         @include("partials.navbar")
         <form method="POST" action="{{route("CreateObj")}}" enctype="multipart/form-data" >
             @csrf("POST")
-            <input type="text" name="clave" value="{{$key[0]->ApiKey}}">
+            <input type="text" name="clave" value="{{$key[0]->ApiKey}}" style="display:none">
             <input type="file" name="archivo" class="file-input w-full max-w-xs" >
             <button class="btn btn-primary">Upload File</button>
         </form>

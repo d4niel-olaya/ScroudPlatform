@@ -53,13 +53,14 @@ use Illuminate\Http\UploadedFile;
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         // Agrega el encabezado de autorización con el token Bearer
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Authorization: Bearer ' . $key,
-        ]);
-        
+       // curl_setopt($ch, CURLOPT_HTTPHEADER, [
+           // 'Authorization: Bearer ' . $key,
+        //]);
+        $auth = 'Authorization: Bearer ' . $key;
+        $headers = [$auth,'Content-Type: multipart/form-data'];
 
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: multipart/form-data'));
         //curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_POSTFIELDS, [
             'archivo' => curl_file_create($file->getRealPath(), $file->getClientMimeType(), $file->getClientOriginalName())
@@ -99,6 +100,8 @@ use Illuminate\Http\UploadedFile;
 
         // Configura las opciones de cURL
         curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
