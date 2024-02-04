@@ -13,6 +13,17 @@
         
     </head>
     <body class="bg-base-100">
-       
+        <div class="flex flex-wrap">
+            @foreach ($buckets as $item)
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <div class="card-body">
+                    <h2 class="card-title">{{$item->NameAlias}}</h2>
+                    <div class="card-actions justify-end">
+                        <a class="btn btn-primary" href="/objects?id={{$item->IdBucket}}">View objects</a>
+                    </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </body>
 </html>

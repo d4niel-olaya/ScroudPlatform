@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BucketController;
+use App\Http\Controllers\ObjetsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 
@@ -18,10 +20,18 @@ use Illuminate\Support\Facades\URL;
 Route::get('/', function () {
     return view('home');
 });
-
+/*
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('buckets');
 })->middleware(['auth', 'verified'])->name('dashboard');
+*/
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [BucketController::class, 'GetBuckets'])->middleware(['auth', 'verified'])->name('dashboard');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/objects', [ObjetsController::class, 'GetObjects'])->middleware(['auth', 'verified'])->name('objects');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
