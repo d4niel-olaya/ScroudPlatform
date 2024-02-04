@@ -13,6 +13,7 @@
         
     </head>
     <body class="bg-base-100">
+        @include("partials.navbar")
         <div class="flex flex-wrap">
             @foreach ($buckets as $item)
                 <div class="card w-96 bg-base-100 shadow-xl">

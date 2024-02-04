@@ -30,7 +30,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/objects', [ObjetsController::class, 'GetObjects'])->middleware(['auth', 'verified'])->name('objects');
+    Route::get('/objects', [ObjetsController::class, 'GetObjects'])->name('objects');
+    Route::post('/object/create', [ObjetsController::class, 'CreateObject'])->name('CreateObj');
 });
 
 Route::middleware('auth')->group(function () {
